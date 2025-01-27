@@ -1,24 +1,18 @@
-from scipy.signal import convolve2d
-
-def load_image(path):
-from PIL import Image
-import numpy as np
-import matplotlib.pyplot as plt
-
-load_image = Image.open('Thailand.jpg')
-image = np.array(load_image)
-plt.imshow(load_image);
-
-def edge_detection(image):
 import numpy as np
 from scipy.ndimage import convolve
 import matplotlib.pyplot as plt
 from PIL import Image
 
+def load_image(path):
+    """Loads an image from the given path and returns it as a numpy array."""
+    loaded_image = Image.open(path)
+    return np.array(loaded_image)
+
 # Load the image
-load_image = Image.open('Thailand.jpg')
-image = np.array(load_image)
-plt.imshow(load_image)
+image_path = 'Thailand.jpg'
+image = load_image(image_path)
+plt.imshow(image)
+plt.axis("off")
 plt.show()
 
 def edge_detection(image_array):
